@@ -1,0 +1,446 @@
+/* src/index.css (NEW - Screenshot Layout) */
+
+/* --- Global Reset & Body --- */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f3f4f6; /* Light grey background from screenshot */
+  color: #1f2937; /* Darker text */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  width: 100%;
+  height: 100vh;
+}
+
+h1, h2, h3 {
+  color: #111827;
+  margin-top: 0;
+}
+
+/* --- Main Layout Container --- */
+.layout-container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  background-color: #1f2937; /* Dark sidebar color from screenshot */
+}
+
+/* --- Sidebar Styling --- */
+.sidebar {
+  width: 260px; /* Fixed sidebar width */
+  background-color: #1f2937; /* Dark sidebar color */
+  color: #e5e7eb; /* Light grey text */
+  display: flex;
+  flex-direction: column; /* Top-to-bottom */
+  height: 100vh;
+  flex-shrink: 0;
+}
+
+.sidebar-header {
+  padding: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  text-align: left;
+}
+
+.sidebar-nav {
+  flex-grow: 1; /* Take up all available space */
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem; /* Padding on the sides */
+  gap: 0.5rem; /* Space between links */
+}
+
+.sidebar-nav a { /* Navigation Links */
+  padding: 0.75rem 1rem;
+  color: #d1d5db; /* Grey text */
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-radius: 6px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.sidebar-nav a:hover {
+  background-color: #374151; /* Darker grey hover */
+  color: white;
+}
+
+.sidebar-nav a.active { /* Active link (Blue) */
+  background-color: #3b82f6; /* Blue from screenshot */
+  color: white;
+  font-weight: 600;
+}
+
+.sidebar-footer {
+  padding: 1.5rem;
+  margin-top: auto; /* Push to the bottom */
+  border-top: 1px solid #374151; /* Separator line */
+}
+
+.sidebar-footer p {
+  font-size: 0.875rem;
+  color: #9ca3af; /* "Logged in as:" text */
+  margin: 0 0 0.25rem 0;
+}
+
+.sidebar-footer span {
+  font-size: 1rem;
+  color: white;
+  font-weight: 600;
+  word-break: break-all;
+}
+
+.sidebar-footer button { /* Logout Button */
+  width: 100%;
+  margin-top: 1rem;
+  background-color: #e5e7eb; /* Light grey button from screenshot */
+  color: #1f2937; /* Dark text */
+  font-weight: 700;
+  border: none;
+}
+.sidebar-footer button:hover {
+  background-color: #d1d5db; /* Slightly darker grey */
+}
+
+/* --- Main Content Area --- */
+.main-content {
+  flex-grow: 1;
+  padding: 2rem;
+  overflow-y: auto; /* Enable scrolling only for the content */
+  height: 100vh;
+  background-color: #f3f4f6; /* Light grey background */
+}
+
+/* --- Main Content Card (The white area) --- */
+.content-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 2rem;
+}
+
+/* --- Login Page (Still needed) --- */
+.login-container {
+  background: white; padding: 2.5rem; border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); width: 100%;
+  max-width: 400px; margin: 0 auto; position: absolute;
+  top: 50%; left: 50%; transform: translate(-50%, -50%);
+}
+
+/* --- Form & List Styling (From Task 3.11 - Still needed) --- */
+.management-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+@media (min-width: 1024px) { .management-grid { grid-template-columns: 1fr 1.5fr; } }
+
+.form-container, .list-container {
+  background-color: #ffffff; padding: 1.5rem; border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+.form-container h3, .list-container h3 { text-align: left; margin-top: 0; }
+
+/* Data List Styling */
+.data-list { display: flex; flex-direction: column; gap: 1rem; }
+.data-list-item {
+  display: flex; flex-direction: column; justify-content: space-between;
+  gap: 1rem; background: #fdfdfd; border: 1px solid #eee;
+  padding: 1rem; border-radius: 6px;
+}
+.data-list-item div:first-child p { margin: 0.25rem 0; }
+.data-list-item strong { color: #333; }
+.item-actions { display: flex; gap: 0.5rem; flex-shrink: 0; align-items: flex-start; }
+.item-actions button { padding: 0.4rem 0.8rem; font-size: 0.9rem; }
+.item-actions .edit-btn { background-color: #ffc107; color: #333; }
+.item-actions .edit-btn:hover { background-color: #e0a800; }
+.item-actions .delete-btn { background-color: #dc3545; }
+.item-actions .delete-btn:hover { background-color: #c82333; }
+
+@media (min-width: 768px) {
+  .data-list-item { flex-direction: row; align-items: center; }
+  .item-actions { align-items: center; }
+}
+
+/* --- General Form Elements (Buttons, Inputs) --- */
+form { display: flex; flex-direction: column; gap: 1rem; }
+form div { display: flex; flex-direction: column; }
+label { font-weight: bold; margin-bottom: 0.25rem; font-size: 0.9rem; }
+
+input[type="email"], input[type="password"], input[type="text"],
+input[type="url"], textarea, select {
+  width: 100%; padding: 0.75rem; border: 1px solid #ccc;
+  border-radius: 4px; font-size: 1rem; box-sizing: border-box;
+}
+
+button {
+  padding: 0.75rem 1rem; font-size: 1rem; font-weight: 700; /* Bolder */
+  color: white; background-color: #3b82f6; /* Blue */ border: none;
+  border-radius: 4px; cursor: pointer; transition: background-color 0.2s;
+}
+button:hover { background-color: #2563eb; }
+button:disabled { background-color: #aaa; cursor: not-allowed; }
+
+.error-message { color: #d93025; text-align: center; font-weight: bold; margin: 0; }
+/* src/index.css (အောက်ဆုံးမှာ ထပ်ထည့်ပါ) */
+
+/* --- Dashboard Summary Cards --- */
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.summary-card {
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.summary-card h2 {
+  font-size: 2.5rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.summary-card p {
+  font-size: 1rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+/* Card Colors (from screenshot) */
+.summary-card.blue { border-left: 5px solid #3b82f6; }
+.summary-card.green { border-left: 5px solid #10b981; }
+.summary-card.yellow { border-left: 5px solid #f59e0b; }
+.summary-card.purple { border-left: 5px solid #8b5cf6; }
+/* src/index.css (အောက်ဆုံးမှာ ထပ်ထည့်ပါ) */
+
+/* --- List Header (Search, Bulk Actions) --- */
+.list-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.search-bar {
+  position: relative;
+  width: 100%;
+}
+
+.search-bar input {
+  width: 100%;
+  padding-left: 2.5rem; /* Icon နေရာချန် */
+}
+
+.search-bar .search-icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af; /* Icon color */
+}
+
+.bulk-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.select-all {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+}
+
+/* --- Scrollable List --- */
+.scrollable-list {
+  max-height: 600px; /* List ရဲ့ အမြင့်ဆုံး သတ်မှတ် */
+  overflow-y: auto; /* Scrollbar ထည့် */
+  padding-right: 0.5rem; /* Scrollbar နေရာပေး */
+}
+
+/* --- List Item (Checkbox & Verified Icon) --- */
+.data-list-item {
+  padding: 0.75rem 1rem;
+}
+
+.item-main-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-grow: 1;
+}
+
+.item-main-info input[type="checkbox"] {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.item-details p {
+  margin: 0.1rem 0;
+}
+
+.verified-icon {
+  color: #3b82f6; /* Blue mark color */
+  font-size: 1rem;  /* (1) အရွယ်အစားကို 1rem သို့ လျှော့ချ */
+  margin-left: 0.4rem; /* (2) ဘေးကပ်နေတာ နည်းနည်းခွာ */
+  vertical-align: middle; /* (3) စာသားနဲ့ တစ်တန်းတည်း ညီအောင် */
+}
+
+.item-actions .verify-btn {
+  background-color: #10b981; /* Green color */
+}
+.item-actions .verify-btn:hover {
+  background-color: #059669;
+}
+/* src/index.css (အောက်ဆုံးမှာ ထပ်ထည့်ပါ) */
+
+/* --- Form Checkbox Styling --- */
+/* --- Form Checkbox Styling --- */
+/* --- Form Checkbox Styling --- */
+.form-checkbox-group {
+  flex-direction: row !important; /* Default 'column' ကို override လုပ် */
+  align-items: center;
+  gap: 0.75rem;
+  /* --- အောက်က ၄ ကြောင်းကို ဖယ်ရှား/ပြင်ဆင်လိုက်ပါပြီ --- */
+  /* background-color, border, padding မလိုတော့ပါ */
+  /* Alignment ညီအောင် အပေါ်က input တွေလို 
+     အနည်းငယ် margin (padding) ထားပေးပါမယ် */
+  margin-top: 0.5rem; 
+  margin-bottom: 0.5rem;
+}
+/* src/index.css (အောက်ဆုံးမှာ ထပ်ထည့်ပါ) */
+
+/* --- Internal Tab System (within a content-card) --- */
+.internal-tab-header {
+  display: flex;
+  border-bottom: 2px solid #e5e7eb; /* Light grey bottom border */
+  margin-bottom: 1.5rem;
+}
+
+.internal-tab-button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.125rem; /* Slightly larger font */
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  color: #6b7280; /* Grey text */
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px; /* To align with the bottom border */
+}
+
+.internal-tab-button:hover {
+  color: #1f2937; /* Darker text on hover */
+}
+
+.internal-tab-button.active {
+  color: #3b82f6; /* Blue text */
+  border-bottom-color: #3b82f6; /* Blue underline */
+}
+/* src/index.css (အောက်ဆုံးမှာ ထပ်ထည့်ပါ) */
+
+/* --- Form Success Message --- */
+.success-message {
+  color: #059669; /* Green */
+  text-align: center;
+  font-weight: bold;
+  margin: 0;
+}
+/* src/index.css (အောက်ဆုံးမှာ ထပ်ထည့်ပါ) */
+
+/* --- react-select Custom Styling --- */
+/* This makes react-select look like our other input fields */
+.react-select-container .react-select__control {
+  min-height: calc(1.5em + 1.5rem + 2px); /* Match input field height */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: none; /* Remove default shadow */
+}
+
+.react-select-container .react-select__control--is-focused {
+  border-color: #3b82f6 !important; /* Blue border on focus */
+  box-shadow: 0 0 0 1px #3b82f6;
+}
+
+.react-select-container .react-select__placeholder {
+  color: #9ca3af; /* Match our placeholder color */
+}
+/* src/index.css (အောက်ဆုံးမှာ ထပ်ထည့်ပါ) */
+
+/* --- Toggle Switch Styling --- */
+.toggle-switch-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0; /* Add some space */
+}
+
+/* The text label (e.g., "Enable Maintenance Mode") */
+.toggle-switch-text {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #1f2937;
+  cursor: pointer;
+}
+
+/* Hide the original checkbox */
+.toggle-switch-checkbox {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+/* The background of the switch */
+.toggle-switch-label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 52px; /* Switch width */
+  height: 28px; /* Switch height */
+  background: #9ca3af; /* Grey color when OFF */
+  display: block;
+  border-radius: 100px;
+  position: relative;
+}
+
+/* The moving circle */
+.toggle-switch-label:after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 24px; /* Circle width */
+  height: 24px; /* Circle height */
+  background: #fff;
+  border-radius: 90px;
+  transition: 0.3s;
+}
+
+/* When checkbox is checked (ON) */
+.toggle-switch-checkbox:checked + .toggle-switch-label {
+  background: #3b82f6; /* Blue color when ON */
+}
+
+/* When checkbox is checked (ON), move the circle */
+.toggle-switch-checkbox:checked + .toggle-switch-label:after {
+  left: calc(100% - 2px);
+  transform: translateX(-100%);
+}
+
+.toggle-switch-label:active:after {
+  width: 30px; /* Click effect */
+}
